@@ -18,7 +18,6 @@ class Cola:
         """ Crea una cola vacía. """
         # La cola vacía se representa con una lista vacía
         self.items=[]
-        self.Usuario=[]
 
     def asignar(self, Usuario ):
         """ Agrega el elemento x a la cola. """
@@ -39,26 +38,27 @@ class Cola:
     
     def consultar(self):
         for i in range(0,len(self.items)):
-            print("Usuario número:"(i+1))
+            print("\nUsuario número:",(i+1),"°")
             print(self.items[i].nombre)
             print(self.items[i].codigo)
             print(self.items[i].placa)
-            print("")
             
-    def agregar(us1):
-        self.Usuario=us1
-        
-        
-    
-parqueadero=Cola()
-x=input("Si desea asignar un usuario del parqueadero, ingrese cualquier tecla excepto 1")
-while (x!=1):
-    us1=Usuario()
-    nombre=input("Ingrese nombre:")
-    codigo=input("Ingrese código:")
-    placa=input("Ingrese placa:")
-    us1.asig_atrib(nombre,codigo,placa)
-    parqueadero.asignar(us1)
-    x=input("Si no desea asignar otro usuario del parqueadero, ingrese la tecla 1")
+def main():
+    Parqueadero = Cola()
+    decision="a"
 
-parqueadero.consultar()
+    while(decision=="a"):
+        tempUsuario = Usuario()
+        nombre=input("\nIngrese nombre:")
+        codigo=input("Ingrese código:")
+        placa=input("Ingrese placa:")
+        tempUsuario.asig_atrib(nombre,codigo,placa)
+        Parqueadero.asignar(tempUsuario)
+        print("\nEl usuario a sido asignado")
+        print("a. Agregar nuevo usuario.")
+        print("b. Salir.")
+        decision=input("Desea realizar otra accion:")
+        
+    Parqueadero.consultar()
+
+if __name__ == "__main__":main() 
