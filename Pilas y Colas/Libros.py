@@ -37,15 +37,35 @@ class Cola:
         """ Devuelve True si la lista está vacía, False si no. """
         return self.items == []
 
-    def buscar(self, x)
+    def buscar(self, x):
         if(self.es_vacia==True):
-            return "No se tiene registro del libro solicitado."
+            print("No se tiene registro del libro solicitado.")
         else:
             for i in range(0,len(self.items)):
-                if(self.titulo==x or self.autor==autor or self.genero==x):
-                    print("\nInformacion:")
+                if(self.items[i].titulo==x or self.items[i].autor==x or self.items[i].genero==x):
+                    print("\nInformacion del libro encontrado:")
                     print(self.items[i].titulo)
                     print(self.items[i].autor)
                     print(self.items[i].genero)
                 else:
-                    return "No se tiene registro del libro solicitado."
+                    print("No se tiene registro del libro solicitado.")
+def main():
+    Biblioteca = Cola()
+    decision="a"
+
+    while(decision=="a"):
+        nuvLibro = Libro()
+        titulo=input("\nIngrese Titulo del libro:")
+        autor=input("Ingrese Autor:")
+        genero=input("Ingrese Genero:")
+        nuvLibro.asig_atrib(titulo,autor,genero)
+        Biblioteca.asignar(nuvLibro)
+        print("\nEl libro ha sido asignado")
+        print("a. Agregar nuevo libro.")
+        print("b. Salir para realizar la busqueda de Libro.")
+        decision=input("Ingrese su decision:")
+        
+    x=input("Ingrese elemento a buscar: ")    
+    Biblioteca.buscar(x)
+
+if __name__ == "__main__":main()
