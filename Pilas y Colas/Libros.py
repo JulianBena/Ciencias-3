@@ -53,24 +53,29 @@ class Cola:
 def main():
     Biblioteca = Cola()
     a=0
-    while(a!='1' and a!='2'):
-        print(" ** MENU ** ")
-        print("Seleccione una opcion.")
-        print("1. Agregar nuevo libro.")
-        print("2. Buscar un libro.")
-        a=input()
+    salir = False
+    while not salir:
+        while(a!='1' and a!='2'):
+            print(" ** MENU ** ")
+            print("Seleccione una opcion.")
+            print("1. Agregar nuevo libro.")
+            print("2. Buscar un libro.")
+            print("3. Salir")
+            a=input()
 
-    if a=='1':
-        nuvLibro = Libro()
-        titulo=input("\nIngrese Titulo del libro:")
-        autor=input("Ingrese Autor:")
-        genero=input("Ingrese Genero:")
-        nuvLibro.asig_atrib(titulo,autor,genero)
-        Biblioteca.asignar(nuvLibro)
-        print("\nEl libro ha sido asignado")
-    else:
-        x=input("Ingrese elemento a buscar: ")    
-        Biblioteca.buscar(x)
+        if a=='1':
+            nuvLibro = Libro()
+            titulo=input("\nIngrese Titulo del libro:")
+            autor=input("Ingrese Autor:")
+            genero=input("Ingrese Genero:")
+            nuvLibro.asig_atrib(titulo,autor,genero)
+            Biblioteca.asignar(nuvLibro)
+            print("\nEl libro ha sido asignado")
+            a=0
+        else:
+            x=input("Ingrese elemento a buscar: ")    
+            Biblioteca.buscar(x)
+            
         
 if __name__ == "__main__":main()
 
