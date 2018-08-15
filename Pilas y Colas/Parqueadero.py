@@ -35,30 +35,38 @@ class Cola:
     def es_vacia(self):
         """ Devuelve True si la lista está vacía, False si no. """
         return self.items == []
-    
+      
     def consultar(self):
         for i in range(0,len(self.items)):
             print("\nUsuario número:",(i+1),"°")
             print(self.items[i].nombre)
             print(self.items[i].codigo)
             print(self.items[i].placa)
+            main()
             
 def main():
     Parqueadero = Cola()
-    decision="a"
+    a=0
+    salir = False
+    while not salir:
+        while(a!='1' and a!='2'):
+            print(" ** MENU ** ")
+            print("Seleccione una opcion.")
+            print("1. Agregar nuevo Auto.")
+            print("2. Buscar un Auto.")
+            print("3. Salir")
+            a=input()
 
-    while(decision=="a"):
-        tempUsuario = Usuario()
-        nombre=input("\nIngrese nombre:")
-        codigo=input("Ingrese código:")
-        placa=input("Ingrese placa:")
-        tempUsuario.asig_atrib(nombre,codigo,placa)
-        Parqueadero.asignar(tempUsuario)
-        print("\nEl usuario a sido asignado")
-        print("a. Agregar nuevo usuario.")
-        print("b. Salir.")
-        decision=input("Desea realizar otra accion:")
-        
-    Parqueadero.consultar()
-
-if __name__ == "__main__":main() 
+        if a=='1':
+            tempUsuario = Usuario()
+            nombre=input("\nIngrese nombre:")
+            codigo=input("Ingrese código:")
+            placa=input("Ingrese placa:")
+            tempUsuario.asig_atrib(nombre,codigo,placa)
+            Parqueadero.asignar(tempUsuario)
+            print("\nEl usuario a sido asignado")
+            a=0
+        else:
+            Parqueadero.consultar()
+                 
+if __name__ == "__main__":main()
