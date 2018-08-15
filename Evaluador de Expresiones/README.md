@@ -1,4 +1,4 @@
-## Ciencias-3
+## Evaluador de Expresiones
 Integrantes:
 
 - Angie Gabriela Antolinez Segura Codigo: 20151020061
