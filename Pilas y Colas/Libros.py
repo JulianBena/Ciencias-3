@@ -47,9 +47,10 @@ class Cola:
                     print(self.items[i].titulo)
                     print(self.items[i].autor)
                     print(self.items[i].genero)
+                    main()
                 else:
                     print("No se tiene registro del libro solicitado.")
-                    
+                    main()
 def main():
     Biblioteca = Cola()
     a=0
@@ -78,4 +79,3 @@ def main():
             
         
 if __name__ == "__main__":main()
-
