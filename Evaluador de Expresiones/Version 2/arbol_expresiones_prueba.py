@@ -38,8 +38,6 @@ def evaluar(arbol, lista):
         return arbol.valor
     return int(arbol.valor)
 
-
-dicc = diccionario()
 pila = Pila()
 lista = []
 
@@ -49,8 +47,6 @@ for contenido in lista:
     contenido = contenido.strip("\n")
     print(contenido.split(" "))
     convertir(contenido.split(" "), pila)
-    dicc.agregar(a,evaluar(pila.desapilar()))
-    lista.append(str(dicc[0][0]),str(dicc[0][1]))
 """
 f=open("expresionesout.txt","w")
 for i in range(0,len(respuestas)-1):
