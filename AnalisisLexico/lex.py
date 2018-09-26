@@ -1,5 +1,13 @@
-tokens = ['NUMBER','PLUS','MINUS','DIVISION','TIMES','LPAREN','RPAREN']
+import ply.lex as lex
+tokens = ['NUMBER','EQUALS','LPAREN','RPAREN']
 
+reserved = {'SUM' : 'PLUS', 'RES':'MINUS', 'MUL':'TIMES', 'DIV':'DIVIDE'}
+
+tokens += reserved.values()
+
+
+t_ignore = ' \t'
+t_EQUALS = r':='
 t_PLUS = r"\+"
 t_TIMES = r"\*"
 t_LPAREN = r"\("
@@ -25,3 +33,11 @@ def t_error(token):
     message += "\nline:" + str(token.lineno)
     message += "\nposition:" + str(token.lexpos)
     raise Exception(message)
+
+lex.lex() # Build the lexer
+
+lex.input("x = 3 + 4 RES 5 MUL 6 DIV 10")
+while True:
+    tok = lex.token()
+    if not tok: break
+    print (str(tok.value) + " - " + str(tok.type))
