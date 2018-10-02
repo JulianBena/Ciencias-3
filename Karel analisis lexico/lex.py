@@ -3,8 +3,9 @@ import ply.lex as lex
 declaracionesiniciales = 'iniciar-programa','inicia-ejecucion','termina-ejecucion','finalizar-programa','define-nueva-instruccion','como','define-prototipo-instruccion']
 expresiones = ['apagate','gira-izquierda','avanza','coge-zumbador','deja-zumbador','sal-de-instruccion']
 sentencias = ['si','entonces','sino','mientras','hacer','repetir','veces','y','o','si-es-cero','precede','sucede']
-tokens = []+declaracionesiniciales+expresiones+sentencias
-
+booleanos=['frente-libre', 'junto-a-zumbador', 'orientado-al-norte','frente-bloqueado','no-junto-a-zumbador','orientado-al-sur','izquierda-libre','algun-zumbador-en-la mochila','orientado-al-este','izquierda-bloqueada','ningun-zumbador-en-la mochila','orientado-al-oeste',
+'derecha-libre','no-orientado-al-norte','derecha-bloqueada','no-orientado-al-sur','no-orientado-al-este','no-orientado-al-oeste']
+tokens = []+declaracionesiniciales+expresiones+sentencias+booleanos
 t_ignore = ' \t'
 t_MOVE = r'\+'
 t_LEFT = r'-'
@@ -25,8 +26,11 @@ def t_error(t):
 
 lex.lex() # Build the lexer
 
-lex.input("x = 3 - 4 + 5 * 65")
-while True:
-    tok = lex.token()
-    if not tok: break
-    print str(tok.value) + " - " + str(tok.type)
+def tokens(programa):
+    lex.input(programa)
+    while True:
+        tok = lex.token()
+        if not tok: break
+        lista.append(str(tok.value) + " -> " + str(tok.type))
+    return lista
+    
