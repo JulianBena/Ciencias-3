@@ -1,4 +1,4 @@
-import lexer
+import lex
 
 PROGRAMA_FILE = "programa.in"
 ANALISIS_FILE = "analisis.out"
