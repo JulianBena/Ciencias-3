@@ -1,0 +1,37 @@
+iniciar-programa
+  define-nueva-instruccion gira-derecha como
+    repetir 3 veces
+      gira-izquierda;
+
+
+  define-nueva-instruccion sube como
+     inicio
+      si no-junto-a-zumbador entonces
+       gira-izquierda;
+     avanza;
+     mientras derecha-bloqueada hacer
+     avanza;
+     gira-derecha;
+     avanza;
+     fin;
+
+  define-nueva-instruccion baja como
+     inicio
+       gira-derecha;
+       mientras frente-libre hacer
+       avanza;
+       gira-izquierda;
+       mientras frente-libre hacer
+       avanza;
+     fin;
+
+    inicia-ejecucion
+ mientras no-junto-a-zumbador hacer
+inicio
+sube;
+baja;
+fin;
+
+        apagate;
+    termina-ejecucion
+finalizar-programa
