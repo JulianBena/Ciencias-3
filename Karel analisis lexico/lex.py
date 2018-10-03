@@ -10,7 +10,7 @@ booleanos=['frente-libre', 'junto-a-zumbador', 'orientado-al-norte','frente-bloq
            'orientado-al-este','izquierda-bloqueada','ningun-zumbador-en-la mochila','orientado-al-oeste','derecha-libre','no-orientado-al-norte','derecha-bloqueada',
            'no-orientado-al-sur','no-orientado-al-este','no-orientado-al-oeste']
 
-tokens = declaracionesiniciales + expresiones + sentencias + booleanos
+tokens = []+declaracionesiniciales + expresiones + sentencias + booleanos
 
 #Declaraciones iniciales
 t_iniciar-programa = r'iniciar-programa'
