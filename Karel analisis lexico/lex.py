@@ -92,8 +92,6 @@ def t_error(t):
 
 lex.lex() # Build the lexer
 
-
-
 def tokens(programa):
     lex.input(programa)
     while True:
@@ -101,3 +99,15 @@ def tokens(programa):
         if not tok: break
         lista.append(str(tok.value) + " -> " + str(tok.type))
     return lista
+
+
+lex.lex() # Build the lexer
+archivo = open("codigo.txt", "r") 
+
+for linea in archivo.readlines():
+    lex.input(linea)
+    print("\nlinea : "+linea)
+    while True:
+        tok = lex.token()
+        if not tok: break
+        print (str(tok.value) + " -> " + str(tok.type))
