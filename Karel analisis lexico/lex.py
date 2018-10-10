@@ -111,3 +111,4 @@ for linea in archivo.readlines():
         tok = lex.token()
         if not tok: break
         print (str(tok.value) + " -> " + str(tok.type))
+       #print (str(tok.value) + " - " + str(tok.type))
