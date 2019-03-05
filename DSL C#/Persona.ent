@@ -1,0 +1,23 @@
+entidad Persona{
+  nombre : string
+  apellido : string
+  tipoIdentificacion : string
+  identificacion : integer
+  correo : string
+  celular : Celular
+  direccion : Direccion
+  semestre : string
+}
+
+  
+entidad Direccion{
+  calle : string
+  barrio : string
+  ciudad : string
+  pais : string
+}
+
+entidad Celular{
+  operador : string
+  numero : string
+}
