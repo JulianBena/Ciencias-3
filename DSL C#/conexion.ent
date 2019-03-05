@@ -1,0 +1,8 @@
+entidad Conexion{
+  nombre : string
+  apellido : string
+  tipoIdentificacion : string
+  identificacion : integer
+  codigo : integer
+  correo : string
+}
