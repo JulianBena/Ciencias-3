@@ -1,0 +1,19 @@
+entidad login{
+  MySqlConnection : string
+  button1_Click : button1_Click
+  label1_Click : string
+  label3_Click : string
+  loginB_Click : loginB_Click
+  sqldato_TextChanged : string
+  login_Load : string
+}
+
+entidad button1_Click{
+  MySqlCommand : string
+}
+
+  
+entidad loginB_Click{
+  nombre : string
+  apellido : string
+}

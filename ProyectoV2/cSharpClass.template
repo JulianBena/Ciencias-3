@@ -1,0 +1,64 @@
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Ciencias3
+{
+
+public partial class {{entity.name|capitalize}} : Form{
+   {% for property in entity.properties %}
+    {% if property is entity %}
+      
+    {% else %}
+     {% if property.name == 'MySqlConnection' %} 
+       {{property.name}} con = new {{property.name}}("Server=''; Database=''; Uid=''; Pwd='';");
+       public {{entity.name|capitalize}}()
+       {
+            InitializeComponent();
+        }
+       {% endif %}
+    {% endif %}
+  {% endfor %}
+      {% for property in entity.properties %}
+       {% if property is entity %}
+        private void {{property.name|capitalize}}(object sender, EventArgs e)
+        {
+          {% if property.name == 'button1_Click' %} 
+            try
+            {
+                con.Open();
+                MessageBox.Show("Conectados");
+                con.Close();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error");
+            }
+
+            {% elif property.name == 'loginB_Click' %}
+              String sql = sqldato.Text;
+              MySqlCommand com = new MySqlCommand(sql, con);
+              MySqlDataAdapter adp = new MySqlDataAdapter();
+              adp.SelectCommand = com;
+              DataTable tab = new DataTable();
+              adp.Fill(tab);
+              usuariosT.DataSource = tab;
+          {% endif %}   
+        }
+        {% else %}
+        private void {{property.name|capitalize}}(object sender, EventArgs e)
+        {
+
+        }
+        {% endif %}
+      {% endfor %}
+}
+}
