@@ -1,32 +1,29 @@
 public partialclass {{entity.name}} : Form{
 
 
-   {% for property in entity.properties %}
-       {{property.type.name|capitalize}} {{property.name}} = new {{property.type.name|capitalize}}(); 
-	   private void button1_Click(object sender, EventArgs e)
+{% for property in entity.properties %}
+{{property.type.name|capitalize}} {{property.name}} = new {{property.type.name|capitalize}}();
+  private void button1_Click(object sender, EventArgs e)
+	{
+		try
         {
-            try
-            {
 			{{property.name}}.Open();
 			 MessageBox.Show("Conectados");
 			 {{property.name}}.Close();
-            }
-            catch (Exception)
+        }
+        catch (Exception)
             {
 
                 MessageBox.Show("Error");
             }  
-        }
-	   {% endfor %}
-  
-	public {{entity.name}}()
-		{
+    }
+{% endfor %}
+      
+  public {{entity.name}}()
+	{
 		InitializeComponent();
-		}
-  
-  
-  
-  
+	}
+	
   private void label1_Click(object sender, EventArgs e)
         {}
 
@@ -35,15 +32,14 @@ public partialclass {{entity.name}} : Form{
   
   private void loginB_Click(object sender, EventArgs e)
         {
-           
-		   
-		   
-		   
-		   
-        }
-
-  
-  
+        String sql = sqldato.Text;
+        MySqlCommand com = new MySqlCommand(sql, con);
+        MySqlDataAdapter adp = new MySqlDataAdapter();
+        adp.SelectCommand = com;
+        DataTable tab = new DataTable();
+        adp.Fill(tab);
+        usuariosT.DataSource = tab;      
+        }  
   
   private void sqldato_TextChanged(object sender, EventArgs e)
     {}
