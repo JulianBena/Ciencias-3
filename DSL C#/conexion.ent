@@ -1,8 +1,18 @@
-entidad Conexion{
-  nombre : string
-  apellido : string
-  tipoIdentificacion : string
-  identificacion : integer
-  codigo : integer
-  correo : string
+entidad login{
+  con : MySqlConnection
+  com : MySqlCommand
+  adp : MySqlDataAdapter
+}
+
+entidad MySqlConnection{
+  Server : string
+  Database : string
+  Uid : string
+  Pwd : string
+}
+
+entidad MySqlCommand{
+}
+
+entidad MySqlDataAdapter{
 }
