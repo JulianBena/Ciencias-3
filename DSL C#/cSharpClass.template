@@ -1,4 +1,6 @@
-public class {{entity.name|capitalize}}{
+public partialclass {{entity.name|capitalize}}{
+
+
    {% for property in entity.properties %}
     {% if property is entity %}
       private {{property.type.name|capitalize}} {{property.name}};
@@ -7,6 +9,8 @@ public class {{entity.name|capitalize}}{
     {% endif %}
   {% endfor %}
 
+  
+  
   {% for property in entity.properties %}
     public {{property.type.name}} get{{property.name|capitalize}}(){
       return this.{{property.name}};
@@ -17,4 +21,44 @@ public class {{entity.name|capitalize}}{
       this.{{property.name}} = value;
     }
   {% endfor %}
+  
+  
+  
+  private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error");
+            }  
+        }
+  
+  private void label1_Click(object sender, EventArgs e)
+        {}
+
+  private void label3_Click(object sender, EventArgs e)
+        {}
+  
+  private void loginB_Click(object sender, EventArgs e)
+        {
+           
+		   
+		   
+		   
+		   
+        }
+
+  
+  
+  
+  private void sqldato_TextChanged(object sender, EventArgs e)
+    {}
+
+  private void login_Load(object sender, EventArgs e)
+	{}
+  
 }
